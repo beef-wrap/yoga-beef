@@ -1,0 +1,20 @@
+FileVersion = 1
+Dependencies = {corlib = "*", corlib = "*"}
+
+[Project]
+Name = "yoga-beef"
+DefaultNamespace = "yoga"
+
+[Configs.Debug.Win64]
+LibPaths = ["$(ProjectDir)\\libs\\windows\\x64\\yoga_d.lib"]
+PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/libs/release/x64/*\")"]
+
+[Configs.Release.Win64]
+LibPaths = ["$(ProjectDir)\\libs\\windows\\x64\\yoga.lib"]
+PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/libs/release/x64/*\")"]
+
+[Configs.Debug.wasm32]
+LibPaths = ["$(ProjectDir)\\libs\\wasm\\yoga.wasm"]
+
+[Configs.Release.wasm32]
+LibPaths = ["$(ProjectDir)\\libs\\wasm\\yoga.wasm"]
